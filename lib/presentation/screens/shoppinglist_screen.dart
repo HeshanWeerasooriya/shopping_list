@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_list/constants/string.dart';
+import 'package:shopping_list/cubit/items_cubit_dart_cubit.dart';
 
 class ShoppingListScreen extends StatelessWidget {
   const ShoppingListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<ItemsCubitDartCubit>(context).fetchItems();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Shopping List'),
